@@ -13099,6 +13099,15 @@ header {
     justify-content: center;
     position: relative;
   }
+  .right-side-image-testimonials {
+    width: 100%;
+    height: auto;
+    padding: 0px 20px 0px 0px;
+  }
+    .right-side-image-testimonials img {
+      width: 100%;
+      height: auto;
+    }
 
   .testimonials-div::before {
     content: "";
@@ -14957,14 +14966,14 @@ header {
     font-weight: 500;
     letter-spacing: -2%;
     line-height: 120%;
-    width: 380px;
+    width: 100%;
     text-align: left;
   }
 
   .footer-left-bottom p {
     font-size: 14px;
     font-weight: 400;
-    letter-spacing: 0%;
+    letter-spacing: -2%;
     line-height: 160%;
     width: fit-content;
     text-align: left;
@@ -15003,6 +15012,7 @@ header {
     gap: 16px;
     width: 100%;
     height: auto;
+    margin: 0px auto;
   }
 
   .calendar-header {
