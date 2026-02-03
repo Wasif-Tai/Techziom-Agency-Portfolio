@@ -12619,13 +12619,6 @@ header {
   }
 
 
-
-  .Primary-btn:hover {
-    box-shadow: 0 0 8px #bfff50a9;
-    transition: box-shadow 0.3s linear;
-    cursor: pointer;
-  }
-
   /* Hero Section */
   .Hero-Section {
     width: 100%;
