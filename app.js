@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initProjectsLoop() {
         const containers = document.querySelectorAll('.projects-top, .projects-bottom');
         containers.forEach(container => {
-            const isMobile = window.innerWidth <= 426;
+            const isMobile = window.innerWidth <= 426 && window.innerWidth <= 376;
             if (!isMobile) {
                 // cleanup if previously looped
                 if (container.dataset.looped) {
@@ -303,6 +303,24 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         clearTimeout(_projResizeTimer);
         _projResizeTimer = setTimeout(initProjectsLoop, 240);
+    });
+
+    /* Fallback: toggle a class when viewport is <=375px to avoid media edge cases */
+    function updateForce375Class() {
+        const is375 = window.innerWidth <= 375;
+        document.body.classList.toggle('force-375', is375);
+        console.debug('[force-375]', 'innerWidth=', window.innerWidth, 'active=', is375);
+    }
+    // init and debounce on resize
+    updateForce375Class();
+    // Short interval to handle DevTools device emulation or environments that don't emit resize immediately
+    let _force375Interval = setInterval(updateForce375Class, 200);
+    setTimeout(() => clearInterval(_force375Interval), 3000);
+
+    let _force375Timer;
+    window.addEventListener('resize', () => {
+        clearTimeout(_force375Timer);
+        _force375Timer = setTimeout(updateForce375Class, 120);
     });
 });
 
