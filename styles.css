@@ -12634,6 +12634,16 @@ header {
     /* Add bottom margin instead */
   }
 
+  /* Ensure testimonial image is fluid and keeps right padding on small screens */
+  .bottom-testimonials img,
+  .right-side-image-testimonials img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+
   .hero-content-center {
     display: flex;
     flex-direction: column;

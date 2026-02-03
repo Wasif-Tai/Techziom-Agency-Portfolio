@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = 'hidden';
             } else {
                 if (navLinks) navLinks.classList.remove('active');
-                // Restore header button visibility on mobile screens
+                // Restore header button visibility on mobile screens by removing inline 'display' so CSS controls it
                 if (headerBtn && isMobile) {
-                    headerBtn.style.setProperty('display', 'flex', 'important');
+                    headerBtn.style.removeProperty('display');
                 }
                 document.body.style.overflow = '';
             }
