@@ -240,5 +240,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(tick);
     }
+
+    // Projects looping on small screens (<=426px)
+    function initProjectsLoop() {
+        const containers = document.querySelectorAll('.projects-top, .projects-bottom');
+        containers.forEach(container => {
+            const isMobile = window.innerWidth <= 426;
+            if (!isMobile) {
+                // cleanup if previously looped
+                if (container.dataset.looped) {
+                    if (container._loopRaf) { cancelAnimationFrame(container._loopRaf); delete container._loopRaf; }
+                    if (container.dataset.original) { container.innerHTML = container.dataset.original; delete container.dataset.original; }
+                    delete container.dataset.looped;
+                    container.style.overflowX = '';
+                }
+                return;
+            }
+
+            if (container.dataset.looped) return; // already initialized
+
+            // store original children
+            container.dataset.original = container.innerHTML;
+            // duplicate once to allow seamless wrap
+            container.innerHTML += container.innerHTML;
+            container.style.overflowX = 'auto';
+            container.style.webkitOverflowScrolling = 'touch';
+
+            let speed = 0.4; // px per frame
+            let paused = false;
+            let rafId;
+
+            function step() {
+                if (!paused) {
+                    container.scrollLeft += speed;
+                    if (container.scrollLeft >= container.scrollWidth / 2) {
+                        container.scrollLeft -= container.scrollWidth / 2;
+                    }
+                }
+                rafId = requestAnimationFrame(step);
+                container._loopRaf = rafId;
+            }
+
+            step();
+
+            let pauseTimer;
+            function pause() { paused = true; clearTimeout(pauseTimer); }
+            function resumeSoon() { clearTimeout(pauseTimer); pauseTimer = setTimeout(() => { paused = false; }, 1200); }
+
+            container.addEventListener('pointerdown', pause, {passive:true});
+            container.addEventListener('pointerup', resumeSoon, {passive:true});
+            container.addEventListener('mouseleave', resumeSoon, {passive:true});
+            container.addEventListener('touchstart', pause, {passive:true});
+            container.addEventListener('touchend', resumeSoon, {passive:true});
+
+            container.dataset.looped = '1';
+        });
+    }
+
+    // init on load and debounce on resize
+    initProjectsLoop();
+    let _projResizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(_projResizeTimer);
+        _projResizeTimer = setTimeout(initProjectsLoop, 240);
+    });
 });
 

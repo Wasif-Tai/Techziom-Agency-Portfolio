@@ -12660,7 +12660,8 @@ header {
     align-items: center;
     gap: 16px;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 11px;
+    width: fit-content;
     justify-content: center;
     letter-spacing: -2%;
     padding: 8px 8px;
