@@ -1,0 +1,40 @@
+/* animations.css — keyframe-based reveals (tz- namespace)
+   Excludes header, hero, and rotated cards via JS (they won't get tz-animate)
+*/
+
+@keyframes tz-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tz-slide-down {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tz-hero-zoom {
+  from { opacity: 0.96; transform: scale(.992); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tz-scale-pop {
+  0%   { transform: scale(1); }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Apply keyframes when `.tz-animate` is present so CSS keyframes run immediately */
+.tz-animate.tz-anim-fade-up { animation: tz-fade-up 640ms cubic-bezier(.2,.9,.2,1) both; animation-delay: var(--tz-delay,0s); }
+.tz-animate.tz-anim-slide-down { animation: tz-slide-down 640ms cubic-bezier(.2,.9,.2,1) both; animation-delay: var(--tz-delay,0s); }
+.tz-animate.tz-anim-hero-zoom { animation: tz-hero-zoom 760ms cubic-bezier(.2,.9,.2,1) both; animation-delay: var(--tz-delay,0s); }
+.tz-animate.tz-anim-scale { animation: tz-scale-pop 320ms ease both; animation-delay: var(--tz-delay,0s); }
+
+/* Delay utilities using CSS custom property */
+.tz-delay-0 { --tz-delay: 0s; }
+.tz-delay-1 { --tz-delay: 0.08s; }
+.tz-delay-2 { --tz-delay: 0.16s; }
+.tz-delay-3 { --tz-delay: 0.28s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tz-animate, .tz-visible, .tz-anim-scale { animation: none !important; transition: none !important; }
+}
