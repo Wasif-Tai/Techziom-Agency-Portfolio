@@ -17772,10 +17772,7 @@ header {
     font-weight: 400;
   }
 
-  .terms-privacy {
-    display: flex;
-    gap: 16px;
-  }
+
 
   .calendar-grid {
     display: grid;
@@ -17886,6 +17883,10 @@ header {
 
   .time-button:hover {
     border-color: #444;
+  }
+    .terms-privacy {
+    display: flex;
+    gap: 16px;
   }
 
   /* Ensure .faq-right fills full width on <=426px */

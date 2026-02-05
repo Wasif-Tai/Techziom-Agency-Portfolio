@@ -324,3 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+function openBooking() {
+  Calendly.initPopupWidget({
+    url: 'https://calendly.com/muhammadwasiftai/30min',
+    // We pass your design colors to the popup so it stays "on brand"
+    color: 'BEFF50', 
+    textColor: 'ffffff', 
+    brandingColor: '171717'
+  });
+  return false;
+}
