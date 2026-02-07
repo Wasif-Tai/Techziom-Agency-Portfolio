@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" type="text/css" />
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <title>Techziom Portfolio</title>
 </head>
 
@@ -14,24 +14,24 @@
   <header>
     <div class="logo"><img src="/assets/logo.png" alt="Techziom" /></div>
     <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Portfolio</a>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
     </div>
     <div class="Primary-btn">
       Book a Call <img src="/assets/Button-icon.png" alt="Forward Icon" />
     </div>
     <!-- Hamburger Icon -->
-  <label class="burger" for="burger">
-  <input type="checkbox" id="burger">
-  <span></span>
-  <span></span>
-  <span></span>
-</label>
+    <label class="burger" for="burger">
+      <input type="checkbox" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
   </header>
   <!-- Hero Section Starts Here -->
-  <section class="Hero-Section">
+  <section class="Hero-Section" id="hero">
     <div class="hero-content-center">
       <div class="expertise">
         <span class="our-expertise">Our expertise</span>UI/UX • Backend • Web
@@ -76,7 +76,7 @@
       <img src="/assets/Designer.png" alt="Designer" />
     </div>
     <div class="video-area">
-      <video src="/assets/hero-video.mp4" controls autoplay muted loop></video>
+      <video src="/assets/hero-video.mp4" autoplay muted loop playsinline></video>
     </div>
   </section>
   <div class="glow-circle"><img src="/assets/Glow Circle.png" alt="" /></div>
@@ -219,7 +219,7 @@
     <img src="/assets/Glow Circle.png" alt="" />
   </div>
   <!-- Our Capabilities Section -->
-  <section class="Capabilities">
+  <section class="Capabilities" id="services">
     <div class="our-capabilities-heading">
       <div class="capabilities">Our Capabilities</div>
       <h2>
@@ -318,7 +318,7 @@
     <img src="/assets/Glow Circle.png" alt="" />
   </div>
   <!-- Portfolio Section -->
-  <section class="portfolio">
+  <section class="portfolio" id="portfolio">
     <div class="our-portfolio-heading">
       <div class="portfolio-head">What We’ve Built</div>
       <h2>
@@ -472,7 +472,7 @@
 
   </section>
   <!-- Our Founder Section -->
-  <section class="our-founder">
+  <section class="our-founder" id="about">
     <div class="header-founder">
       <div class="founder-head">Our Founders</div>
       <h2>
@@ -725,9 +725,9 @@
         <a href="">Terms of Services</a>
         <a href="">Privacy Policy</a>
       </div>
-</div>
+    </div>
 
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </section>
   <script src="app.js"></script>
 </body>

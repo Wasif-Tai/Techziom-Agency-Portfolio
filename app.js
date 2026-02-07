@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sliders = ['.projects-top', '.projects-bottom'];
-    
+
     sliders.forEach(selector => {
         const container = document.querySelector(selector);
         if (container) {
@@ -11,19 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    // Active Link Switching
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    navAnchors.forEach(anchor => {
+        anchor.addEventListener('click', function () {
+            navAnchors.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
     // FAQ Accordion
     const faqContainers = document.querySelectorAll('.open-faq, .closed-faq');
-    
+
     faqContainers.forEach(container => {
         container.addEventListener('click', () => {
             const isOpen = container.classList.contains('open-faq');
-            
+
             // Close all items
             faqContainers.forEach(item => {
                 item.classList.remove('open-faq');
                 item.classList.add('closed-faq');
             });
-            
+
             // If the clicked item was closed, open it
             if (!isOpen) {
                 container.classList.remove('closed-faq');
@@ -42,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleMenu = () => {
             // Only hide the button if screen width is 425px or less
             const isMobile = window.innerWidth <= 425;
-            
+
             if (burgerInput.checked) {
                 if (navLinks) navLinks.classList.add('active');
                 // Only hide header button on mobile screens
@@ -112,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // (remove any tz-related classes and unobserve if present)
     try {
         document.querySelectorAll('header, .rotated-card-left, .rotated-card-right').forEach(el => {
-            el.classList.remove('tz-animate','tz-visible','tz-anim-fade-up','tz-anim-hero-zoom','tz-anim-slide-down','tz-anim-scale','tz-delay-0','tz-delay-1','tz-delay-2','tz-delay-3');
-            try { revealObserver.unobserve(el); } catch(e) { /* ignore */ }
+            el.classList.remove('tz-animate', 'tz-visible', 'tz-anim-fade-up', 'tz-anim-hero-zoom', 'tz-anim-slide-down', 'tz-anim-scale', 'tz-delay-0', 'tz-delay-1', 'tz-delay-2', 'tz-delay-3');
+            try { revealObserver.unobserve(el); } catch (e) { /* ignore */ }
         });
     } catch (e) { /* noop */ }
 
@@ -158,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         child.classList.add('tz-animate');
                         if (entry.anim) child.classList.add(entry.anim);
                         // apply stagger using delay classes where available
-                        const delayClass = ['tz-delay-0','tz-delay-1','tz-delay-2','tz-delay-3'][Math.min(idx,3)];
+                        const delayClass = ['tz-delay-0', 'tz-delay-1', 'tz-delay-2', 'tz-delay-3'][Math.min(idx, 3)];
                         if (delayClass) child.classList.add(delayClass);
                         // ensure observer watches newly added tz-animate children
                         revealObserver.observe(child);
@@ -218,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countEls.forEach(el => countObserver.observe(el));
     }
 
-    
+
 
     function animateCount(el, endValue, duration = 1000, suffix = '') {
         const start = 0;
@@ -287,11 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
             function pause() { paused = true; clearTimeout(pauseTimer); }
             function resumeSoon() { clearTimeout(pauseTimer); pauseTimer = setTimeout(() => { paused = false; }, 1200); }
 
-            container.addEventListener('pointerdown', pause, {passive:true});
-            container.addEventListener('pointerup', resumeSoon, {passive:true});
-            container.addEventListener('mouseleave', resumeSoon, {passive:true});
-            container.addEventListener('touchstart', pause, {passive:true});
-            container.addEventListener('touchend', resumeSoon, {passive:true});
+            container.addEventListener('pointerdown', pause, { passive: true });
+            container.addEventListener('pointerup', resumeSoon, { passive: true });
+            container.addEventListener('mouseleave', resumeSoon, { passive: true });
+            container.addEventListener('touchstart', pause, { passive: true });
+            container.addEventListener('touchend', resumeSoon, { passive: true });
 
             container.dataset.looped = '1';
         });
@@ -322,16 +332,51 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(_force375Timer);
         _force375Timer = setTimeout(updateForce375Class, 120);
     });
+    // Drag-to-Scroll Functionality for Desktop (Mouse)
+    const dragContainers = document.querySelectorAll('.all-services, .projects-top, .projects-bottom');
+
+    dragContainers.forEach(slider => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            // Prevent default drag behavior on images
+            e.preventDefault();
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
 });
 
 
 function openBooking() {
-  Calendly.initPopupWidget({
-    url: 'https://calendly.com/muhammadwasiftai/30min',
-    // We pass your design colors to the popup so it stays "on brand"
-    color: 'BEFF50', 
-    textColor: 'ffffff', 
-    brandingColor: '171717'
-  });
-  return false;
+    Calendly.initPopupWidget({
+        url: 'https://calendly.com/muhammadwasiftai/30min',
+        // We pass your design colors to the popup so it stays "on brand"
+        color: 'BEFF50',
+        textColor: 'ffffff',
+        brandingColor: '171717'
+    });
+    return false;
 }

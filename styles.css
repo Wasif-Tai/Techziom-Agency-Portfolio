@@ -89,6 +89,11 @@ body {
   margin: 0 auto;
   overflow-x: hidden;
   position: relative;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 header {
@@ -97,10 +102,11 @@ header {
   justify-content: space-between;
   width: 1440px;
   padding: 0px 80px;
-  height: 44px;
+  height: 72px;
   color: #ffffff;
   position: fixed;
-  top: 20px;
+  background-color: #0c0c0c;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -110,7 +116,7 @@ header {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 7px 20px 7px 7px;
+  padding: 7px 20px 7px 20px;
   background-color: rgba(255, 255, 255, 0.04);
   box-shadow: inset 0px 4px 24px rgba(255, 255, 255, 0.04);
   border-radius: 100px;
@@ -123,7 +129,15 @@ header {
   margin-right: -40px;
 }
 
-.nav-links a:first-child {
+.nav-links a {
+  transition: all 0.3s ease;
+}
+
+.nav-links a:first-child:not(.active) {
+  margin-left: 20px;
+}
+
+.nav-links a.active {
   position: relative;
   align-items: center;
   justify-content: center;
@@ -135,7 +149,7 @@ header {
   border-radius: 100px;
 }
 
-.nav-links a:first-child::before {
+.nav-links a.active::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2615,10 +2629,10 @@ header {
     justify-content: space-between;
     width: 1440px;
     padding: 0px 80px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -2641,7 +2655,7 @@ header {
     margin-right: -40px;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -2653,7 +2667,7 @@ header {
     border-radius: 100px;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -5068,10 +5082,10 @@ header {
     justify-content: space-between;
     width: 1440px;
     padding: 0px 80px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -5094,7 +5108,7 @@ header {
     margin-right: -40px;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -5106,7 +5120,7 @@ header {
     border-radius: 100px;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -7522,10 +7536,10 @@ header {
     justify-content: space-between;
     width: 1024px;
     padding: 0px 60px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1000;
   }
 
@@ -7546,7 +7560,7 @@ header {
     margin-right: -40px;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -7558,7 +7572,7 @@ header {
     border-radius: 100px;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -9997,10 +10011,10 @@ header {
     justify-content: space-between;
     width: 768px;
     padding: 0px 40px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1000;
     left: 43.5%;
   }
@@ -10022,7 +10036,7 @@ header {
     margin-right: -40px;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -10034,7 +10048,7 @@ header {
     border-radius: 100px;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -12514,10 +12528,10 @@ header {
     justify-content: space-between;
     width: 100%;
     padding: 0px 20px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1000;
     left: 0;
     transform: none;
@@ -12602,14 +12616,14 @@ header {
     transition-delay: 0.5s;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     background: transparent;
     color: #BEFF50;
     padding: 0;
     height: fit-content;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     display: none;
   }
 
@@ -12736,10 +12750,11 @@ header {
     width: 58px;
     height: auto;
   }
-    .heading-img img {
-      width: 58px;
-      height: auto;
-    }
+
+  .heading-img img {
+    width: 58px;
+    height: auto;
+  }
 
   .head-para p {
     font-size: 16px;
@@ -12859,7 +12874,7 @@ header {
     gap: 18px;
     height: 188px;
     justify-content: center;
-    
+
   }
 
   .rotated-card-left::before {
@@ -13103,15 +13118,17 @@ header {
     justify-content: center;
     position: relative;
   }
+
   .right-side-image-testimonials {
     width: 100%;
     height: auto;
     padding: 0px 20px 0px 0px;
   }
-    .right-side-image-testimonials img {
-      width: 100%;
-      height: auto;
-    }
+
+  .right-side-image-testimonials img {
+    width: 100%;
+    height: auto;
+  }
 
   .testimonials-div::before {
     content: "";
@@ -13249,23 +13266,25 @@ header {
     letter-spacing: -2%;
     color: rgba(255, 255, 255, 0.5);
   }
-   .name-testimonial {
+
+  .name-testimonial {
     display: flex;
     flex-direction: column;
     gap: 4px;
     align-items: start;
     justify-content: center;
     margin-bottom: -3px;
-   }
+  }
 
   .ratings {
     display: flex;
   }
-    .ratings img {
-      width: 100px !important;
-      height: auto;
-      margin-top: -9px;
-    }
+
+  .ratings img {
+    width: 100px !important;
+    height: auto;
+    margin-top: -9px;
+  }
 
   .glow-circle-2 {
     position: absolute;
@@ -14509,6 +14528,7 @@ header {
     width: 100%;
     height: fit-content;
   }
+
   .Mohsin-Akber img {
     width: 100%;
     height: auto;
@@ -14564,10 +14584,11 @@ header {
     width: 100%;
     height: fit-content;
   }
-    .Ahsan-Akber img {
-      width: 100%;
-      height: auto;
-    }
+
+  .Ahsan-Akber img {
+    width: 100%;
+    height: auto;
+  }
 
   .info-founder-2 {
     display: flex;
@@ -14983,8 +15004,8 @@ header {
     margin-top: -10px;
     margin-bottom: 20px;
   }
-  
-.footer-left-bottom .Primary-btn {
+
+  .footer-left-bottom .Primary-btn {
     width: 100%;
     display: flex;
     align-items: center;
@@ -15192,6 +15213,7 @@ header {
     box-sizing: border-box !important;
   }
 }
+
 @media (max-width: 376px) {
 
   html {
@@ -15217,10 +15239,10 @@ header {
     justify-content: space-between;
     width: 100%;
     padding: 0px 20px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1000;
     left: 0;
     transform: none;
@@ -15305,14 +15327,14 @@ header {
     transition-delay: 0.5s;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     background: transparent;
     color: #BEFF50;
     padding: 0;
     height: fit-content;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     display: none;
   }
 
@@ -15375,10 +15397,11 @@ header {
     scale: calc(1);
     width: 100%;
   }
-    .expertise img {
-      width: 32px;
-      height: auto;
-    }
+
+  .expertise img {
+    width: 32px;
+    height: auto;
+  }
 
   .expertise::before {
     content: "";
@@ -15444,10 +15467,11 @@ header {
     width: 58px;
     height: auto;
   }
-    .heading-img img {
-      width: 58px;
-      height: auto;
-    }
+
+  .heading-img img {
+    width: 58px;
+    height: auto;
+  }
 
   .head-para p {
     font-size: 16px;
@@ -15567,7 +15591,7 @@ header {
     gap: 18px;
     height: 188px;
     justify-content: center;
-    
+
   }
 
   .rotated-card-left::before {
@@ -15811,15 +15835,17 @@ header {
     justify-content: center;
     position: relative;
   }
+
   .right-side-image-testimonials {
     width: 100%;
     height: auto;
     padding: 0px 20px 0px 0px;
   }
-    .right-side-image-testimonials img {
-      width: 100%;
-      height: auto;
-    }
+
+  .right-side-image-testimonials img {
+    width: 100%;
+    height: auto;
+  }
 
   .testimonials-div::before {
     content: "";
@@ -15957,23 +15983,25 @@ header {
     letter-spacing: -2%;
     color: rgba(255, 255, 255, 0.5);
   }
-   .name-testimonial {
+
+  .name-testimonial {
     display: flex;
     flex-direction: column;
     gap: 4px;
     align-items: start;
     justify-content: center;
     margin-bottom: -3px;
-   }
+  }
 
   .ratings {
     display: flex;
   }
-    .ratings img {
-      width: 100px !important;
-      height: auto;
-      margin-top: -9px;
-    }
+
+  .ratings img {
+    width: 100px !important;
+    height: auto;
+    margin-top: -9px;
+  }
 
   .glow-circle-2 {
     position: absolute;
@@ -17217,6 +17245,7 @@ header {
     width: 100%;
     height: fit-content;
   }
+
   .Mohsin-Akber img {
     width: 100%;
     height: auto;
@@ -17272,10 +17301,11 @@ header {
     width: 100%;
     height: fit-content;
   }
-    .Ahsan-Akber img {
-      width: 100%;
-      height: auto;
-    }
+
+  .Ahsan-Akber img {
+    width: 100%;
+    height: auto;
+  }
 
   .info-founder-2 {
     display: flex;
@@ -17692,8 +17722,8 @@ header {
     margin-top: -10px;
     margin-bottom: 20px;
   }
-  
-.footer-left-bottom .Primary-btn {
+
+  .footer-left-bottom .Primary-btn {
     width: 100%;
     display: flex;
     align-items: center;
@@ -17884,7 +17914,8 @@ header {
   .time-button:hover {
     border-color: #444;
   }
-    .terms-privacy {
+
+  .terms-privacy {
     display: flex;
     gap: 16px;
   }
@@ -17932,10 +17963,10 @@ header {
     width: 100%;
     /* Fit 375px screen */
     padding: 0px 20px;
-    height: 44px;
+    height: 72px;
     color: #ffffff;
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1000;
     left: 0;
     transform: none;
@@ -18010,14 +18041,14 @@ header {
     transition-delay: 0.5s;
   }
 
-  .nav-links a:first-child {
+  .nav-links a.active {
     background: transparent;
     color: #BEFF50;
     padding: 0;
     height: fit-content;
   }
 
-  .nav-links a:first-child::before {
+  .nav-links a.active::before {
     display: none;
   }
 
@@ -20532,4 +20563,48 @@ header {
   .time-button:hover {
     border-color: #444;
   }
+}
+
+/* Custom Scroll Behavior Override for Drag-to-Scroll */
+.all-services::-webkit-scrollbar,
+.projects-top::-webkit-scrollbar,
+.projects-bottom::-webkit-scrollbar {
+  display: none !important;
+}
+
+.all-services,
+.projects-top,
+.projects-bottom {
+  -ms-overflow-style: none !important;
+  /* IE 10+ */
+  scrollbar-width: none !important;
+  /* Firefox */
+  cursor: grab;
+  overflow-x: auto;
+  /* Ensure smooth scrolling when NOT dragging */
+  scroll-behavior: smooth;
+}
+
+.all-services.active,
+.projects-top.active,
+.projects-bottom.active {
+  cursor: grabbing;
+  scroll-behavior: auto !important;
+  /* Instant response for drag */
+  user-select: none;
+  /* Prevent text selection during drag */
+}
+
+/* Hide Video Controls Forcefully */
+.video-area video::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-area video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.video-area video {
+  pointer-events: none;
+  /* Disables right-click menu and default touch interactions */
 }
