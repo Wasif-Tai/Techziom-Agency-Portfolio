@@ -371,12 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function openBooking() {
-    Calendly.initPopupWidget({
-        url: 'https://calendly.com/muhammadwasiftai/30min',
-        // We pass your design colors to the popup so it stays "on brand"
-        color: 'BEFF50',
-        textColor: 'ffffff',
-        brandingColor: '171717'
-    });
+    window.open('https://calendly.com/service-kx8/fancy-intro?month=2026-02', '_blank');
     return false;
 }

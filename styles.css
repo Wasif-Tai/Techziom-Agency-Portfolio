@@ -12601,7 +12601,10 @@ header {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.2s;
+  }
 
+  .nav-links a:first-child:not(.active) {
+    margin-left: 0;
   }
 
   .nav-links a:nth-child(2) {
@@ -14649,7 +14652,7 @@ header {
     font-weight: 500;
     letter-spacing: -4%;
     line-height: 120%;
-    width: 400px;
+    width: 350px;
     text-align: center;
   }
 
@@ -14792,9 +14795,9 @@ header {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
     align-items: start;
     justify-content: space-between;
-    width: 100%;
+    width: auto;
     position: relative;
-    margin-right: -100px;
+    margin: 0 20px;
     box-sizing: border-box;
   }
 
@@ -14859,10 +14862,10 @@ header {
     justify-content: start;
     width: 100%;
     height: 400px;
-    border-radius: 40px;
+    border-radius: 12px;
     padding: 24px 24px;
     color: #ffffff;
-    background-image: url(/assets/cta.png);
+    background-image: url(/assets/mobile-cta.png);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -15306,6 +15309,10 @@ header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
+  }
+
+  .nav-links a:first-child:not(.active) {
+    margin-left: 0;
   }
 
   .nav-links.active a {
@@ -17577,20 +17584,20 @@ header {
     justify-content: start;
     width: 100%;
     height: 400px;
-    border-radius: 40px;
+    border-radius: 12px;
     padding: 30px 24px;
     color: #ffffff;
-    background-image: url(/assets/cta.png);
+    background-image: url(/assets/mobile-cta.png);
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .header-cta h2 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
     letter-spacing: -4%;
     line-height: 120%;
-    width: 320px;
+    width: 300px;
     text-align: center;
     margin-top: -9px;
   }
@@ -17609,6 +17616,20 @@ header {
     color: rgba(255, 255, 255, 0.5);
     margin-top: -10px;
     margin-bottom: 20px;
+  }
+  .header-cta .Primary-btn {
+    width: 100%;
+    min-height: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Ensure space for the absolute icon if needed */
+  }
+
+  .header-cta .Primary-btn img {
+    position: absolute;
+    right: 8px;
   }
 
   /* Footer */
