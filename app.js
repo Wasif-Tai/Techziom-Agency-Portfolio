@@ -367,6 +367,17 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.scrollLeft = scrollLeft - walk;
         });
     });
+
+    // Handle all "Book a Call" buttons
+    const primaryButtons = document.querySelectorAll('.Primary-btn');
+    primaryButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openBooking();
+        });
+        // Make it look clickable
+        btn.style.cursor = 'pointer';
+    });
 });
 
 
