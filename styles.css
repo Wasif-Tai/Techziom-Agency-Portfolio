@@ -105,11 +105,16 @@ header {
   height: 72px;
   color: #ffffff;
   position: fixed;
-  background-color: #0c0c0c;
+  background-color: transparent;
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #0c0c0c;
 }
 
 .nav-links {
@@ -17617,6 +17622,7 @@ header {
     margin-top: -10px;
     margin-bottom: 20px;
   }
+
   .header-cta .Primary-btn {
     width: 100%;
     min-height: 44px !important;
