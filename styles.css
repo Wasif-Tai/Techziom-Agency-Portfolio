@@ -14790,21 +14790,18 @@ header.scrolled {
     margin-bottom: -13px;
   }
 
-  .faq-right {
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    gap: 40px;
-    border-radius: 14px;
-    padding: 24px 24px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-    align-items: start;
-    justify-content: space-between;
-    width: auto;
-    position: relative;
-    margin: 0 20px;
-    box-sizing: border-box;
-  }
+.faq-right {
+        display: flex !important;
+        width: 100% !important;
+        min-width: 390px !important;
+        max-width: 100% !important;
+        height: auto !important;
+        padding: 24px 24px !important;
+        align-items: start !important;
+        justify-content: center !important;
+        margin-left: 200px !important;
+        box-sizing: border-box !important;
+    }
 
   .start-today {
     display: flex;
@@ -15211,13 +15208,14 @@ header.scrolled {
   /* Ensure .faq-right fills full width on <=426px */
   .faq-right {
     display: flex !important;
-    min-width: 420px !important;
-    max-width: 680px !important;
+    width: 100% !important;
+    min-width: 395px !important;
+    max-width: 100% !important;
     height: auto !important;
     padding: 24px 24px !important;
     align-items: start !important;
     justify-content: center !important;
-    margin-left: 0 !important;
+    margin-left: 100px !important;
     box-sizing: border-box !important;
   }
 }
