@@ -379,6 +379,18 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.style.cursor = 'pointer';
     });
 
+    // Handle Hero Secondary Button smooth scroll
+    const heroSecondaryBtn = document.querySelector('.Hero-Section .Secondry-btn');
+    if (heroSecondaryBtn) {
+        heroSecondaryBtn.addEventListener('click', () => {
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        heroSecondaryBtn.style.cursor = 'pointer';
+    }
+
     // Header Scroll Effect
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
